@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+ 
+// Link list node
+struct Node
+{
+    int data;
+    struct Node* next;
+};
+ 
+// Function prototypes
+struct Node* SortedMerge(struct Node* a,
+                         struct Node* b);
+void FrontBackSplit(struct Node* source,
+                    struct Node** frontRef,
+                    struct Node** backRef);
+ 
+// Sorts the linked list by changing
+// next pointers (not data)
+void MergeSort(struct Node** headRef)
+{
+    struct Node* head = *headRef;
+    struct Node* a;
+    struct Node* b;
+ 
+    // Base case -- length 0 or 1
+    if ((head == NULL) ||
+        (head->next == NULL))
+    {
+        return;
+}
